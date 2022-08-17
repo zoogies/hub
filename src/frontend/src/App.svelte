@@ -6,10 +6,14 @@
 <main>
 	<Router>
 		<div id="header" class="bg2 shadow">
+			<img id="header_logo" alt="logo" src="./assets/icon_256_trans.png"/>
 			<h1 id="header_title">Zoogies</h1>
 		</div>
 		<Route path="/" component="{Main}"/>
 		<Route component="{Main}" />
+		<!-- <footer id="footer">
+			<p>Created by Ryan Zmuda</p>
+		</footer> -->
 	</Router>
 </main>
 <style>
@@ -23,6 +27,12 @@
 	}
 	#header_title{
 		margin: 0px;
-		padding-left: 70px;
+		padding-left: 0px;
+  		text-shadow: 2px 2px #000000;
 	}
+	#header_logo{
+		width: 70px;
+		height: 70px;
+	}
+	/* yeah  */
 </style>
