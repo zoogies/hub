@@ -5,11 +5,6 @@
 <main>
     <div class="main_content">
         <HomePanel content={ServerStats}/>
-        <HomePanel content={ServerStats}/>
-        <HomePanel content={ServerStats}/>
-        <HomePanel content={ServerStats}/>
-        <HomePanel content={ServerStats}/>
-        <HomePanel content={ServerStats}/>
     </div>
 </main>
 <style>

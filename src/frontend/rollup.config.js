@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,6 +38,16 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		replace({
+			server_address: "http://127.0.0.1:5000",
+	  
+			// 2 level deep object should be stringify
+			process: JSON.stringify({
+			  env: {
+				server_address: 'http://127.0.0.1:5000',
+			  }
+			}),
+		  }),
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
