@@ -72,6 +72,7 @@
         align-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 10px;
     }
     .spinner {
         width: 25%;
@@ -99,6 +100,8 @@
     }
     .text-fit{
         margin: 0px;
+        font-weight: 600;
+        font-size: 20px;
     }
     .pbar{
         width: 90%;

@@ -53,3 +53,42 @@ a:hover {
 a:visited {
 	color: rgb(0,80,160);
 } */
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+scrollbar-width: auto;
+scrollbar-color: #303030 #212121;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+background: #212121;
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: #303030;
+border-radius: 15px;
+border: 0px solid #303030;
+}
+
+progress {
+	background-color: #212121;
+  }
+  progress::-webkit-progress-bar {
+	/* style rules */
+	background-color: #212121;
+  }
+  progress::-webkit-progress-value {
+	/* style rules */
+	background-color: white;
+	border-radius: 5px;
+  }
+  progress::-moz-progress-bar {
+	background-color: white;
+	border-radius: 5px;
+  }
