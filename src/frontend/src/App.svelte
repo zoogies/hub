@@ -1,13 +1,19 @@
 <!-- App.svelte -->
 <script>
 	import { Router, Route, Link } from "svelte-navigator";
+import Clock from "./Components/Clock.svelte";
 	import Main from "./Components/Main.svelte";
 </script>
 <main>
 	<Router>
 		<div id="header" class="bg2 shadow">
-			<img id="header_logo" alt="logo" src="./assets/icon_256_trans.png"/>
-			<h1 id="header_title">Zoogies</h1>
+			<div class="title">
+				<img id="header_logo" alt="logo" src="./assets/icon_256_trans.png"/>
+				<h1 id="header_title">Zoogies</h1>
+			</div>
+			<div class="clock">
+				<Clock/>
+			</div>
 		</div>
 		<Route path="/" component="{Main}"/>
 		<Route component="{Main}" />
@@ -24,6 +30,7 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+		justify-content: space-between;
 	}
 	#header_title{
 		margin: 0px;
@@ -33,6 +40,12 @@
 	#header_logo{
 		width: 70px;
 		height: 70px;
+	}
+	.title{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
 	}
 	/* yeah  */
 </style>
