@@ -32,8 +32,8 @@
         // else{
         //     var strTime = hours + ':' + minutes + ' ' + ampm;
         // } bugged seconds time
-        time = strTime
-        setTimeout(gettime,1000)
+        time = strTime;
+        setTimeout(gettime,1000);
     }
     gettime();
 </script>
@@ -45,7 +45,6 @@
 <style>
     .clock{
         border-radius: 15px;
-        /* box-shadow: 0px 0px 19px 0px #000000; */
         margin-right: 10px;
     }
     .clocktxt{

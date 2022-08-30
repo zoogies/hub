@@ -25,9 +25,6 @@
         setTimeout(getstats,1000) //TODO LOWER THIS FOR PROD BUT 1 SECOND LOOKS COOLER
     }
     getstats()
-
-    
-
 </script>
 
 <div class="wrapper">

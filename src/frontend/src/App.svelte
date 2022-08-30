@@ -1,8 +1,9 @@
 <!-- App.svelte -->
 <script>
 	import { Router, Route, Link } from "svelte-navigator";
-import Clock from "./Components/Clock.svelte";
+	import Clock from "./Components/Clock.svelte";
 	import Main from "./Components/Main.svelte";
+	import NotFound from "./Components/NotFound.svelte";
 </script>
 <main>
 	<Router>
@@ -16,7 +17,7 @@ import Clock from "./Components/Clock.svelte";
 			</div>
 		</div>
 		<Route path="/" component="{Main}"/>
-		<Route component="{Main}" />
+		<!-- <Route path="*" component="{NotFound}"/> TODO seemingly no way to catch not found routes -->
 		<!-- <footer id="footer">
 			<p>Created by Ryan Zmuda</p>
 		</footer> -->
@@ -47,5 +48,4 @@ import Clock from "./Components/Clock.svelte";
 		flex-wrap: nowrap;
 		align-items: center;
 	}
-	/* yeah  */
 </style>
