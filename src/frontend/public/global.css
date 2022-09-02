@@ -85,7 +85,7 @@ progress {
   }
   progress::-webkit-progress-value {
 	/* style rules */
-	background-color: white;
+	background-color: rgb(148, 148, 148);
 	border-radius: 5px;
   }
   progress::-moz-progress-bar {

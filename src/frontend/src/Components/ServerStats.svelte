@@ -40,20 +40,20 @@
 
         <!--PUT A CASE FOR ERROR HERE-->
             <div class="internal-fit">
-                <h1 class="text-fit">Server: {serverdata['ip']}</h1>
+                <h1 class="green text-fit">Server: {serverdata['ip']}</h1>
                 <p class="text-fit">Up For: {(`${uptime_stamp[0]}d ${uptime_stamp[1]}h ${uptime_stamp[2]}m ${uptime_stamp[3]}s` )}</p>
 
-                <progress class="pbar" max="100" value={serverdata['load-average']}/>
                 <p class="text-fit">Load Average: {serverdata['load-average']}%</p>
+                <progress class="pbar" max="100" value={serverdata['load-average']}/>
                 <!-- <CircularProgressBar progress={serverdata['disk']['percent'] / 100}/> -->
-                <progress class="pbar" max="100" value={serverdata['disk']['percent']}/>
                 <p class="text-fit">Disk Usage: {serverdata['disk']['used']}GB/{serverdata['disk']['total']}GB</p>
+                <progress class="pbar" max="100" value={serverdata['disk']['percent']}/>
                 <!-- <CircularProgressBar progress={serverdata['memory']['percent'] / 100}/> -->
-                <progress class="pbar" max="100" value={serverdata['memory']['percent']}/>
                 <p class="text-fit">RAM Usage: {serverdata['memory']['used']}GB/{serverdata['memory']['total']}GB</p>
+                <progress class="pbar" max="100" value={serverdata['memory']['percent']}/>
                 <!-- <CircularProgressBar progress={serverdata['swap']['percent'] / 100}/> -->
-                <progress class="pbar" max="100" value={serverdata['swap']['percent']}/>
                 <p class="text-fit">Swap Usage: {serverdata['swap']['used']}GB/{serverdata['swap']['total']}GB</p>
+                <progress class="pbar" max="100" value={serverdata['swap']['percent']}/>
                 <!-- <CircularProgressBar progress={serverdata['load-average'] / 100}/> -->
             </div>
         {/if}
@@ -69,7 +69,6 @@
         align-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 10px;
     }
     .spinner {
         width: 25%;
@@ -93,16 +92,19 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: left;
+        justify-content: space-between;
+        max-height: 400px;
     }
     .text-fit{
         margin: 0px;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 15px;
     }
     .pbar{
-        width: 90%;
-        margin: 10px;
+        width: 100%;
+        margin: 6px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
     .error-fit{
         width: 100%;
@@ -112,5 +114,8 @@
         justify-content: center;
         flex-direction: column;
         text-align: center;
+    }
+    .green{
+        color: rgb(0, 233, 19);
     }
 </style>

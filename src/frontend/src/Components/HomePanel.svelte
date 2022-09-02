@@ -16,5 +16,6 @@
         border-radius: 10px;
         width: 70vw;
         height: 70vw;
+        padding: 10px;
     }
 </style>
