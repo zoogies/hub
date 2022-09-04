@@ -1,7 +1,5 @@
 <script>
-    import App from "../App.svelte";
     import axios from 'axios';
-    import CircularProgressBar from "./CircularProgressBar.svelte";
 
     var loaded = false;
     var error = true;

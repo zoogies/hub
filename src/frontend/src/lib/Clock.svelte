@@ -6,11 +6,11 @@
     // as minutes for now
 
     // get clock mode from local storage
-    var mode = window.localStorage.getItem('clockmode');
-    // if clock mode doesent exist set it to minutes
-    if(mode === null){
-        window.localStorage.setItem('clockmode','minutes')
-    }
+    // var mode = window.localStorage.getItem('clockmode');
+    // // if clock mode doesent exist set it to minutes
+    // if(mode === null){
+    //     window.localStorage.setItem('clockmode','minutes')
+    // }
 
     // declare our time variable (starts as placeholder)
     var time = '00:00'
