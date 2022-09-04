@@ -16,6 +16,7 @@
 	"type": "module",
 	"dependencies": {
 		"axios": "^0.27.2",
+		"svelte-icons": "^2.1.0",
 		"svelte-preprocess": "^4.10.7"
 	}
 }

@@ -1,11 +1,28 @@
+<script>
+    import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
+    import FaSpotify from 'svelte-icons/fa/FaSpotify.svelte'
+    import IoMdCodeDownload from 'svelte-icons/io/IoMdCodeDownload.svelte'
+</script>
 <main>
     <div class="showcase_top">
-        <div class="block bg3">
-            <p class="showcase_text">item</p>
-        </div>
-        <div class="block bg3">
-            <p class="showcase_text">item</p>
-        </div>
+        <a href="https://zoogies.live" class="block bg3 hvr-float">
+            <div class="icon">
+                <IoIosPaper />
+            </div>
+            <p class="showcase_text">portfolio</p>
+        </a>
+        <a href="/spotiguess" class="block bg3 hvr-float">
+            <div class="icon">
+                <FaSpotify />
+            </div>
+            <p class="showcase_text">spotiguess</p>
+        </a>
+        <a href="/gifapi" class="block bg3 hvr-float">
+            <div class="icon">
+                <IoMdCodeDownload />
+            </div>
+            <p class="showcase_text">gif api</p>
+        </a>
     </div>
 </main>
 <style>
@@ -19,6 +36,7 @@
         align-items: center;
         align-content: center;
         justify-content: center;
+        width: 100%;
     }
     .block {
         border-radius: 10px;
@@ -28,5 +46,13 @@
         margin: 5px;
         align-items: center;
         align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .icon {
+        color: rgb(255, 255, 255);
+        width: 50px;
+        height: 50px;
+        margin: 10px;
     }
 </style>

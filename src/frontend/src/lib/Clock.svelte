@@ -1,5 +1,7 @@
 <script>
     
+    // RELEVANT: https://kit.svelte.dev/faq
+
     // TODO
     // the plan here was to let the user click on the clock panel to expand to seconds or collapse
     // back into minutes, im just kinda lazy and it takes a lot of screen realestate so can just leave it

@@ -1,13 +1,13 @@
 <script>
     import axios from 'axios';
-
+    const ip = import.meta.env.VITE_SERVER_IP;
     var loaded = false;
     var error = true;
     var serverdata;
     var uptime_stamp;
 
     function getstats(){
-        axios.get('server_address/api/getstats')
+        axios.get(ip + '/api/getstats')
         .then(function (response) {
             serverdata = response.data;
             error = false;
@@ -20,7 +20,7 @@
             error = true;
             loaded = true;
         });
-        setTimeout(getstats,1000) //TODO LOWER THIS FOR PROD BUT 1 SECOND LOOKS COOLER
+        setTimeout(getstats,3000) //TODO LOWER THIS FOR PROD BUT 1 SECOND LOOKS COOLER
     }
     getstats()
 </script>
