@@ -5,19 +5,19 @@
 </script>
 <main>
     <div class="showcase_top">
-        <a href="https://zoogies.live" class="block bg3 hvr-float">
+        <a href="https://zoogies.live" class="block bg3 hvr-float hvr-fade slightshadow">
             <div class="icon">
                 <IoIosPaper />
             </div>
             <p class="showcase_text">portfolio</p>
         </a>
-        <a href="/spotiguess" class="block bg3 hvr-float">
+        <a href="/spotiguess" class="block bg3 hvr-float hvr-fade slightshadow">
             <div class="icon">
                 <FaSpotify />
             </div>
             <p class="showcase_text">spotiguess</p>
         </a>
-        <a href="/gifapi" class="block bg3 hvr-float">
+        <a href="/gifapi" class="block bg3 hvr-float hvr-fade slightshadow">
             <div class="icon">
                 <IoMdCodeDownload />
             </div>
@@ -43,7 +43,7 @@
         width: 45%;
         height: 100px;
         display: flex;
-        margin: 5px;
+        margin: 10px;
         align-items: center;
         align-content: center;
         justify-content: center;

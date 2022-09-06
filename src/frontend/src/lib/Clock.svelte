@@ -40,7 +40,7 @@
     gettime();
 </script>
 <main>
-    <div class="clock bg3">
+    <div class="clock bg3 slightshadow">
         <p class="clocktxt">{time}</p>
     </div>
 </main>

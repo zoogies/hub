@@ -1,2 +1,4 @@
 .DS_Store
 src/node_modules
+src/backend/gifs.json
+src/backend/TEMP.json

@@ -7,7 +7,7 @@
     var uptime_stamp;
 
     function getstats(){
-        axios.get(ip + '/api/getstats')
+        axios.get(ip + '/api/hub/getstats')
         .then(function (response) {
             serverdata = response.data;
             error = false;

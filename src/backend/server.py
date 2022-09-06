@@ -1,5 +1,6 @@
 # imports
 import psutil
+import json
 import requests
 from flask import Flask
 from flask_cors import CORS
@@ -13,9 +14,11 @@ CORS(app)
 # set the public ip address
 ip=requests.get('https://api64.ipify.org?format=json').json()['ip']
 
+# HUB API ROUTES
+
 # api route for getting server statistics
-@app.route('/api/getstats')
-def admin():
+@app.route('/api/hub/getstats')
+def getstats():
     return {
         #"user":str(os.getlogin()),
         "ip":ip,
@@ -38,6 +41,23 @@ def admin():
             "percent":psutil.disk_usage('/').percent
         }
     }
+
+# MITSURI API ROUTES
+
+@app.route('/api/mitsuri/getgifs')
+def getgifs():
+    return json.load(open('TEMP.json'))
+
+# TODO URGENT URGENT URGENT 
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
+
 
 # run the server on port 5000 locally
 if __name__ == '__main__':
