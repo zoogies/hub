@@ -27,10 +27,10 @@
         state = 'sync';
     }
     function copytext(){
-        document.getElementById('output').select();
-        document.execCommand('copy');
-        alert('output copied!');
-        document.getSelection().collapseToEnd();
+        document.getElementById('output').select(); // highlight the text from the hidden input element
+        document.execCommand('copy'); // use some depracated copy command (the only one that works)
+        alert('output copied!'); // generic alert
+        document.getSelection().collapseToEnd(); // remove the selection so you cant see the hidden text
     }
     
 </script>
