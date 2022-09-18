@@ -26,8 +26,11 @@
     function synctab(){
         state = 'sync';
     }
-    function copytext(){ // TODO its literally impossible to copy text to the clipboard
-        //setTimeout(async()=>console.log(await window.navigator.clipboard.writeText('fdghfd')), 3000)
+    function copytext(){
+        document.getElementById('output').select();
+        document.execCommand('copy');
+        alert('output copied!');
+        document.getSelection().collapseToEnd();
     }
     
 </script>
@@ -58,6 +61,7 @@
         <div class="json_output bg2 slightshadow">
             <code>{JSON.stringify(gifs)}</code>
         </div>
+        <input type="text" id="output" name="output" value={JSON.stringify(gifs)} readonly>
     {/if}
 {:else if state === 'sync'}
         <p>TODO lol</p>
@@ -101,5 +105,15 @@
         100% {
             transform: rotate(1turn);
         }
+    }
+    #output{
+        outline: none;
+        border:none;
+        background-image:none;
+        background-color:transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;  
+        color: #212121;
     }
 </style>
