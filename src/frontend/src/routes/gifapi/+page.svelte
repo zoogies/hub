@@ -34,7 +34,7 @@
     }
     
 </script>
-
+<h1 style="text-align: center;">Ryan's Saved Gif Web Interface</h1>
 <div class="top">
     <div style="margin: 20px;" on:click={getgifs}>
         <Button label={"Display gifs"}/>
@@ -64,7 +64,12 @@
         <input type="text" id="output" name="output" value={JSON.stringify(gifs)} readonly>
     {/if}
 {:else if state === 'sync'}
-        <p>TODO lol</p>
+        <!-- TODO LEFTOFF HERE -->
+        <!-- submit button and way to add credentials to request -->
+        <div class="bg2 slightshadow json_output">
+            <h2>Paste json string below:</h2>
+            <textarea></textarea>
+        </div>
 {/if}
 
 <style>

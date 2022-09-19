@@ -2,7 +2,9 @@
 import psutil
 import json
 import requests
-from flask import Flask
+import time
+from lib import jsontools
+from flask import Flask, request
 from flask_cors import CORS
 
 # create flask app
@@ -13,6 +15,17 @@ CORS(app)
 
 # set the public ip address
 ip=requests.get('https://api64.ipify.org?format=json').json()['ip']
+
+# AUTHORIZATION
+
+# general purpose auth function with locally defined server secret
+def auth(password):
+    with open("secret.txt") as f:
+            serverkey = f.read()
+            if serverkey == password:
+                return True
+            else:
+                return False
 
 # HUB API ROUTES
 
@@ -48,16 +61,23 @@ def getstats():
 def getgifs():
     return json.load(open('TEMP.json'))
 
-# TODO URGENT URGENT URGENT 
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-# MAKE SURE YOU MAKE BACKUPS WHEN YOU DO THIS EVERY UPLOAD
-
+@app.route('/api/mitsuri/setgifs', methods=["POST"])
+def setgifs():
+    # check auth to access this endpoint
+    if(auth(request.json['password'])):
+        # check validity of json uploaded
+        if(jsontools.validate(request.json['data'])): # returns true if data meets criteria, false if not
+            # create a duplicate of the 'current.json' file renamed to the date (backup)
+            open("./backups/"+str(time.time())+".json", "w").write(open("./backups/current.json").read())
+           
+            # rewrite 'current.json' to consist of non duplicate keys from upload and old records
+            merged = jsontools.merge('backups/current.json',request.json['data'])
+            with open('./backups/current.json', "w") as current:
+                current.write(merged)
+        else:
+            return "Bad json data",400
+    else:
+        return "Incorrect authorization.",401
 
 # run the server on port 5000 locally
 if __name__ == '__main__':
