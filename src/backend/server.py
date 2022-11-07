@@ -27,6 +27,24 @@ def auth(password):
             else:
                 return False
 
+def updatecurrent(data):
+    # check validity of json uploaded
+        if(jsontools.validate(data)): # returns true if data meets criteria, false if not
+            # create a duplicate of the 'current.json' file renamed to the date (backup)
+            open("./backups/"+str(int(time.time()))+".json", "w").write(open("./backups/current.json").read().replace("'",'"')) # replace normal apostrophe with double quote or it wont work
+           
+            # rewrite 'current.json' to consist of non duplicate keys from upload and old records
+            merged = jsontools.merge('backups/current.json',data)
+            
+            with open('./backups/current.json', "w") as current:
+                current.write(str(merged).replace("'",'"')) # replace normal apostrophe with double quote or it wont work
+            return "done",200
+        else:
+            return "Bad json data",400
+
+def getcurrent():
+    return json.load(open('backups/current.json'))
+
 # HUB API ROUTES
 
 # api route for getting server statistics
@@ -59,26 +77,42 @@ def getstats():
 
 @app.route('/api/mitsuri/getgifs')
 def getgifs():
-    return json.load(open('TEMP.json'))
+    return getcurrent()
 
 @app.route('/api/mitsuri/setgifs', methods=["POST"])
 def setgifs():
     # check auth to access this endpoint
-    if(auth(request.json['password'])):
-        # check validity of json uploaded
-        if(jsontools.validate(request.json['data'])): # returns true if data meets criteria, false if not
-            # create a duplicate of the 'current.json' file renamed to the date (backup)
-            open("./backups/"+str(time.time())+".json", "w").write(open("./backups/current.json").read())
-           
-            # rewrite 'current.json' to consist of non duplicate keys from upload and old records
-            merged = jsontools.merge('backups/current.json',request.json['data'])
-            with open('./backups/current.json', "w") as current:
-                current.write(merged)
-        else:
-            return "Bad json data",400
+    if(auth(request.authorization['password'])):
+        return updatecurrent(request.json)
     else:
         return "Incorrect authorization.",401
+
+@app.route('/api/mitsuri/syncgifs', methods=["POST"])
+def syncgifs():
+    # process of syncing
+
+    # check timesfavorited in json sent, if its more than current.json we need to push changes, if its less we need to pull changes, if its the same nothign needs to happen
+    if(auth(request.authorization['password'])):
+        if(jsontools.validate(request.json)):
+            request_times = request.json['_state']['timesFavorited']
+            current_times = jsontools.getcurrentfavorited()
+            if(request_times == current_times):
+                # print("equal - no action needed")
+                return {"status":"equal"},200
+            elif(request_times > current_times):
+                # print('more - need to update current')
+                updatecurrent(request.json)
+                return {"status":"ahead"},200
+            elif(request_times < current_times):
+                # print('less - need to update posted')
+                return {"status":"behind","new":getcurrent()},200
+
+
+    # OTHER: if we go into the realm of automated check all clients connected
+    return "An Error Has Occurred",500
 
 # run the server on port 5000 locally
 if __name__ == '__main__':
     app.run(host='127.0.0.1', use_reloader=True, port=5000, threaded=True, debug=True)
+
+# TODO this code quality and readability is so trash and not maintainable

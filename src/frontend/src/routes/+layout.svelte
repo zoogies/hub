@@ -18,7 +18,7 @@
 	<slot/>
 
 	<div class="footer">
-		<p>Beta Release 9.18.22</p>
+		<p>Beta Release 11.6.22</p>
 		<p>Ryan Zmuda</p>
 		<a href="https://github.com/Yoyolick/hub/issues">report an issue</a>
 	</div>

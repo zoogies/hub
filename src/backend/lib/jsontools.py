@@ -22,6 +22,7 @@ def parse(name):
     else:
         print('An exception has occurred, please see the error listed above.')
 
+# validation function that checks that the json is structured correctly
 def validate(data):
     try:
         # catch all bad conditions and return false, return true if not caught
@@ -39,6 +40,8 @@ def validate(data):
             return False
         elif(type(data['_state']['timesFavorited']) != int):
             return False
+
+        #TODO add check for length of dict array equal to timesfavorited number
         
         # check that every item in '_state' > 'favorites' is a dict
         for key in data['_state']['favorites']:
@@ -50,5 +53,9 @@ def validate(data):
     except:
         return False
 
+# merge function that will take a string of data and merge it together with the last recorded file returning the new combined file
 def merge(file, data):
     return removeduplicates(data['_state']['favorites'] + getdata(file))
+
+def getcurrentfavorited():
+    return json.load(open('backups/current.json'))['_state']['timesFavorited']
