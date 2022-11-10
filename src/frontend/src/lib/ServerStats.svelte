@@ -1,6 +1,6 @@
 <script>
     import axios from 'axios';
-    const ip = import.meta.env.VITE_SERVER_IP;
+    const ip = 'https://zoogies.live' //import.meta.env.VITE_SERVER_IP;
     var loaded = false;
     var error = true;
     var serverdata;
