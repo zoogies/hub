@@ -9,7 +9,7 @@ from flask import Flask, request
 from flask_cors import CORS
 
 # create flask app
-app = Flask(__name__, static_folder='filmfest/server')
+app = Flask(__name__)
 
 # cors-ify the app
 CORS(app)
@@ -118,8 +118,12 @@ def ryangif():
     index = random.randint(0,len(gifs['_state']['favorites']))
     return {"url":gifs['_state']['favorites'][index]['url'],"total":gifs['_state']['timesFavorited'],"index":index}
 
+@app.route('/')
+def root():
+    return "Api release >> 11.9.22 >> Ryan Zmuda"
+
 # run the server on port 5000 locally
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', use_reloader=True, port=5000, threaded=True, debug=True)
+    app.run(host='0.0.0.0', use_reloader=True, port=5055, threaded=True, debug=True)
 
 # TODO this code quality and readability is so trash and not maintainable

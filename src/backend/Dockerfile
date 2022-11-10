@@ -1,5 +1,4 @@
-# syntax=docker/dockerfile:1
-FROM python:3.7-alpine
+FROM python:3.12.0a1-bullseye
 WORKDIR /src/backend
 
 COPY requirements.txt requirements.txt

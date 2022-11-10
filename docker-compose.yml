@@ -3,12 +3,14 @@ services:
   api:
     build: src/backend
     ports:
-      - 5505:5000
+      - 5505:5055
     volumes:
-      - src/backend/backups:/src/backend/backups
+      - ./src/backend/backups:/src/backend/backups
+    restart: unless-stopped
   gui:
     build: src/frontend
     ports:
       - 3303:3000
-volumes:
-  backups
+    restart: unless-stopped
+    depends_on:
+      - api
