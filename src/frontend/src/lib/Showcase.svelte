@@ -5,7 +5,7 @@
 </script>
 <main>
     <div class="showcase_top">
-        <a href="https://zoogies.live" class="block bg3 hvr-float hvr-fade slightshadow">
+        <a href="https://zmuda.dev" class="block bg3 hvr-float hvr-fade slightshadow">
             <div class="icon">
                 <IoIosPaper />
             </div>

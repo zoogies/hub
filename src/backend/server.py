@@ -118,12 +118,13 @@ def ryangif():
     index = random.randint(0,len(gifs['_state']['favorites']))
     return {"url":gifs['_state']['favorites'][index]['url'],"total":gifs['_state']['timesFavorited'],"index":index}
 
-@app.route('/')
+@app.route('/api')
 def root():
-    return "Api release >> 11.9.22 >> Ryan Zmuda"
+    return "Api release >> 11.10.22 >> Ryan Zmuda"
 
 # run the server on port 5000 locally
 if __name__ == '__main__':
+    print("REMINDER >> Create src/backend/secret.txt && src/backend/backups/current.json")
     app.run(host='0.0.0.0', use_reloader=True, port=5055, threaded=True, debug=True)
 
 # TODO this code quality and readability is so trash and not maintainable
