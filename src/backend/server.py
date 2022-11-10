@@ -1,4 +1,5 @@
 # imports
+import random
 import psutil
 import json
 import requests
@@ -110,6 +111,12 @@ def syncgifs():
 
     # OTHER: if we go into the realm of automated check all clients connected
     return "An Error Has Occurred",500
+
+@app.route('/api/mitsuri/ryangif', methods=["GET"])
+def ryangif():
+    gifs = getcurrent()
+    index = random.randint(0,len(gifs['_state']['favorites']))
+    return {"url":gifs['_state']['favorites'][index]['url'],"total":gifs['_state']['timesFavorited'],"index":index}
 
 # run the server on port 5000 locally
 if __name__ == '__main__':

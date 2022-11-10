@@ -20,7 +20,7 @@
             error = true;
             loaded = true;
         });
-        setTimeout(getstats,3000) //TODO LOWER THIS FOR PROD BUT 1 SECOND LOOKS COOLER
+        setTimeout(getstats,5000) //TODO LOWER THIS FOR PROD BUT 1 SECOND LOOKS COOLER
     }
     getstats()
 </script>

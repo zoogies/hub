@@ -39,9 +39,9 @@
     <div style="margin: 20px;" on:click={getgifs}>
         <Button label={"Display gifs"}/>
     </div>
-    <div style="margin: 20px;" on:click={synctab}>
+    <!-- <div style="margin: 20px;" on:click={synctab}>
         <Button label={"Sync gifs"}/>
-    </div>
+    </div> -->
     <!-- TODO preview all gifs online big imageboard -->
 </div>
 {#if state === 'display'}

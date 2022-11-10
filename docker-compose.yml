@@ -1,0 +1,14 @@
+version: '3'
+services:
+  api:
+    build: src/backend
+    ports:
+      - 5505:5000
+    volumes:
+      - src/backend/backups:/src/backend/backups
+  gui:
+    build: src/frontend
+    ports:
+      - 3303:3000
+volumes:
+  backups
