@@ -18,7 +18,7 @@ CORS(app)
 ip=requests.get('https://api64.ipify.org?format=json').json()['ip']
 
 # AUTHORIZATION
-serverkey = null
+serverkey = None
 with open("secret.txt") as f:
     serverkey = f.read()
 
