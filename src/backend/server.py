@@ -18,15 +18,16 @@ CORS(app)
 ip=requests.get('https://api64.ipify.org?format=json').json()['ip']
 
 # AUTHORIZATION
+serverkey = null
+with open("secret.txt") as f:
+    serverkey = f.read()
 
 # general purpose auth function with locally defined server secret
 def auth(password):
-    with open("secret.txt") as f:
-            serverkey = f.read()
-            if serverkey == password:
-                return True
-            else:
-                return False
+    if serverkey == password:
+        return True
+    else:
+        return False
 
 def updatecurrent(data):
     # check validity of json uploaded
@@ -125,6 +126,7 @@ def root():
 # run the server on port 5000 locally
 if __name__ == '__main__':
     print("REMINDER >> Create src/backend/secret.txt && src/backend/backups/current.json")
+    print("REMINDER >> Current secret is set to -> "+serverkey)
     app.run(host='0.0.0.0', use_reloader=True, port=5055, threaded=True, debug=True)
 
 # TODO this code quality and readability is so trash and not maintainable
