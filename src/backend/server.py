@@ -20,11 +20,11 @@ ip=requests.get('https://api64.ipify.org?format=json').json()['ip']
 # AUTHORIZATION
 serverkey = None
 with open("secret.txt") as f:
-    serverkey = f.read()
+    serverkey = f.read().strip()
 
 # general purpose auth function with locally defined server secret
 def auth(password):
-    if serverkey == password:
+    if serverkey == password.strip():
         return True
     else:
         return False
