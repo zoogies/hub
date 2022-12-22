@@ -121,12 +121,11 @@ def ryangif():
 
 @app.route('/api')
 def root():
-    return "Api release >> 11.10.22 >> Ryan Zmuda"
+    return "Api release >> 12.22.22 >> Ryan Zmuda"
 
-# run the server on port 5000 locally
-if __name__ == '__main__':
-    print("REMINDER >> Create src/backend/secret.txt && src/backend/backups/current.json")
-    print("REMINDER >> Current secret is set to -> "+serverkey)
-    app.run(host='0.0.0.0', use_reloader=True, port=5055, threaded=True, debug=True)
+
+# print("REMINDER >> Create src/backend/secret.txt && src/backend/backups/current.json")
+# print("REMINDER >> Current secret is set to -> "+serverkey)
+# app.run(host='0.0.0.0', use_reloader=True, port=5055, threaded=True, debug=True)
 
 # TODO this code quality and readability is so trash and not maintainable
