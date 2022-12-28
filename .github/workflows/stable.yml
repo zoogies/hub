@@ -43,8 +43,11 @@ jobs:
       - name: Build and push container image
         working-directory: src/frontend
         run: |
+          IMAGE_ID=$(echo ghcr.io/${{ github.repository }} | tr '[A-Z]' '[a-z]')
+          echo IMAGE_ID=$IMAGE_ID
+          # Build and Publish container image
           docker buildx build --push \
-          --tag zoogies-frontend:latest \
+          --tag $IMAGE_ID:latest \
           --platform linux/arm/v7 .
       
       # - name: Delete old package versions
