@@ -5,7 +5,7 @@ services:
     ports:
       - 5505:5055
     volumes:
-      - ./src/backend/backups:/src/backend/backups
+      - /home/dietpi/projects/hub/src/backend/backups:/src/backend/backups
     restart: unless-stopped
   gui:
     image: ghcr.io/yoyolick/hub:latest

@@ -18,7 +18,7 @@ services:
     ports:
       - 5505:5055
     volumes:
-      - ./src/backend/backups:/src/backend/backups
+      - host-storage:container-path
     restart: unless-stopped
   gui:
     image: ghcr.io/yoyolick/hub:latest
