@@ -49,6 +49,8 @@ jobs:
           docker buildx build --push \
           --tag $IMAGE_ID:latest \
           --platform linux/arm/v7 .
+          --oci-mediatypes=false
+          --provenance=false
       
       # - name: Delete old package versions
       #   uses: camargo/delete-untagged-action@v1
