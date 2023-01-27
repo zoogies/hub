@@ -10,7 +10,10 @@ const config = {
 				 secure: false,      
 				 ws: true,
 		  }
-		}
+		},
+	},
+	define: {
+		__VERSION__: JSON.stringify(process.env.npm_package_version),
 	}
 };
 

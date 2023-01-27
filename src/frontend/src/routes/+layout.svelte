@@ -18,7 +18,8 @@
 	<slot/>
 
 	<div class="footer">
-		<p>Beta Release 11.10.22</p>
+		<!-- svelte-ignore missing-declaration -->
+		<p>Release {__VERSION__}</p>
 		<p>Ryan Zmuda</p>
 		<a href="https://github.com/Yoyolick/hub/issues">report an issue</a>
 	</div>
