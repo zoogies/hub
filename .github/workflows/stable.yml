@@ -49,7 +49,7 @@ jobs:
           docker buildx build --push \
           --tag $IMAGE_ID:latest \
           --platform linux/arm/v7 .
-          --output oci-mediatypes=false
+          --output=oci-mediatypes=false
           --provenance=false
       
       # - name: Delete old package versions
