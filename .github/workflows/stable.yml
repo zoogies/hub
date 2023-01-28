@@ -20,3 +20,4 @@ jobs:
         with:
           push: true
           tags: ghcr.io/yoyolick/hub:latest
+          working-directory: src/frontend
