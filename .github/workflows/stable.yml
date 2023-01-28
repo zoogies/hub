@@ -17,7 +17,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@v3
-        context: ./src/frontent
         with:
           push: true
           tags: ghcr.io/yoyolick/hub:latest
