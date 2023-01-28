@@ -31,4 +31,4 @@ jobs:
         with:
           context: ./src/frontend
           push: true
-          tags: user/app:latest
+          tags: ghcr.io/yoyolick/hub:nightly
