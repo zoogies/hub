@@ -1,9 +1,9 @@
 name: stable build
 
-on:
-  push:
-    tags:
-      - "v*"
+on: push
+  # push:
+  #   tags:
+  #     - "v*"
 
 jobs:
   build-and-push-image:
@@ -16,8 +16,8 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
+        working-directory: ./src/frontend
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:src/frontend"
           push: true
           tags: user/app:latest
