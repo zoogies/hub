@@ -18,6 +18,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: "{{defaultContext}}:src/frontend"
           push: true
           tags: ghcr.io/yoyolick/hub:latest
-          working-directory: src/frontend
