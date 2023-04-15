@@ -43,7 +43,7 @@
         width: 45%;
         height: 100px;
         display: flex;
-        margin: 10px;
+        margin: 7px;
         align-items: center;
         align-content: center;
         justify-content: center;
