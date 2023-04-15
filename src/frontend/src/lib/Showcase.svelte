@@ -2,6 +2,7 @@
     import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
     import FaSpotify from 'svelte-icons/fa/FaSpotify.svelte'
     import IoMdCodeDownload from 'svelte-icons/io/IoMdCodeDownload.svelte'
+    import GoBeaker from 'svelte-icons/go/GoBeaker.svelte'
 </script>
 <main>
     <div class="showcase_top">
@@ -22,6 +23,12 @@
                 <IoMdCodeDownload />
             </div>
             <p class="showcase_text">gif api</p>
+        </a>
+        <a href="/playground" class="block bg3 hvr-float hvr-fade slightshadow">
+            <div class="icon">
+                <GoBeaker />
+            </div>
+            <p class="showcase_text">playground</p>
         </a>
     </div>
 </main>
