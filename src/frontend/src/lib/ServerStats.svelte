@@ -1,28 +1,47 @@
 <script>
-    import axios from 'axios';
-    const ip = 'https://zoogies.live' //import.meta.env.VITE_SERVER_IP;
-    var loaded = false;
-    var error = true;
-    var serverdata;
-    var uptime_stamp;
-
-    function getstats(){
-        axios.get(ip + '/api/hub/getstats')
-        .then(function (response) {
+    import axios from "axios";
+    import { onMount, onDestroy } from "svelte";
+  
+    const ip = "https://zoogies.live/"; // import.meta.env.VITE_SERVER_IP
+    let loaded = false;
+    let error = true;
+    let serverdata;
+    let uptime_stamp;
+    let intervalId;
+  
+    async function getstats() {
+        try {
+            const response = await axios.get(ip + "/api/hub/getstats");
             serverdata = response.data;
             error = false;
             loaded = true;
-            var uptime_seconds = Math.round(new Date() / 1000) - serverdata['boot-time'];
-            uptime_stamp = (Math.floor(uptime_seconds/86400) + ":" + (new Date(uptime_seconds * 1000)).toISOString().substr(11, 8)).split(":");
-            
-        })
-        .catch(function (error) {
+            const uptime_seconds = Math.round(new Date() / 1000) - serverdata["boot-time"];
+            uptime_stamp = (
+            Math.floor(uptime_seconds / 86400) +
+            ":" +
+            (new Date(uptime_seconds * 1000)).toISOString().substr(11, 8)
+            ).split(":");
+        } catch (err) {
             error = true;
             loaded = true;
-        });
-        setTimeout(getstats,5000) //TODO LOWER THIS FOR PROD BUT 1 SECOND LOOKS COOLER
+        }
     }
-    getstats()
+  
+    function startInterval() {
+        getstats();
+        intervalId = setInterval(getstats, 5000); // Make sure to adjust the interval time as needed
+    }
+    function stopInterval() {
+        clearInterval(intervalId);
+    }
+
+    onMount(() => {
+        startInterval();
+    });
+
+    onDestroy(() => {
+        stopInterval();
+    });
 </script>
 
 <div class="wrapper">
