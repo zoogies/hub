@@ -63,7 +63,7 @@ scrollbar-color: #303030 #212121;
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-width: 15px;
+width: 10px;
 }
 
 *::-webkit-scrollbar-track {
@@ -71,7 +71,7 @@ background: #212121;
 }
 
 *::-webkit-scrollbar-thumb {
-background-color: #303030;
+background-color: #3c3c3c;
 border-radius: 15px;
 border: 0px solid #303030;
 }
