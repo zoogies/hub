@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
@@ -26,7 +27,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/zoogies/mitsuri            
+            ghcr.io/zoogies/hub            
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
