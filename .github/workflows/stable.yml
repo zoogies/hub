@@ -49,4 +49,4 @@ jobs:
           docker buildx build --push \
           --tag $IMAGE_ID:latest \
           --provenance=false \
-          --platform linux/arm/v7 .
+          --platform linux/amd64 .
